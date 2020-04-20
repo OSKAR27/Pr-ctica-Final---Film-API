@@ -36,7 +36,7 @@ class ListActorController extends Controller
         if ($cachePool->hasItem('demo_array'))
         {
             $demoString = $cachePool->getItem('demo_array');
-            echo $demoString->get();
+            //echo $demoString->get();
             //var_dump($demoString->get());
             echo "\n";
         }
@@ -45,8 +45,8 @@ class ListActorController extends Controller
         {
             $demoString = $cachePool->getItem('demo_string');
             //echo $demoString->get();
-            var_dump($demoString->get());
-            echo "\n";
+            //var_dump($demoString->get());
+            //echo "\n";
         }
 
        
