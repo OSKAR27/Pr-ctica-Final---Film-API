@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for film in listfilms %}
+            <tr>
+                <td>{{ film.name }}</td>
+                <td>{{ film.description }}</td>
+                <td>{{ film.actor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

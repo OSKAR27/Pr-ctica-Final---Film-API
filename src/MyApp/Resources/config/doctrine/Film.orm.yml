@@ -1,0 +1,20 @@
+MyApp\Component\Film\Domain\Film:
+    type: entity
+    table: film
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100
+        description:
+            type: text
+    oneToOne:
+      actor:
+        targetEntity: Actor
+        cascade: ["persist"]
+        joinColumn:
+           name: actor_id
+           referencedColumnName: id

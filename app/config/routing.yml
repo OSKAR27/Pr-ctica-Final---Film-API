@@ -1,0 +1,45 @@
+#app:
+#    resource: "@ProductBundle/Controller/"
+#    type:     annotation
+
+#Film
+film_create:
+  path: /film/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Film\Controller\CreateFilmController::execute }
+  methods: [POST]
+
+film_delete:
+  path: /film/{id}/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Film\Controller\DeleteFilmController::execute }
+  methods: [DELETE]
+
+film_update:
+  path: /film/{id}/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Film\Controller\UpdateFilmController::execute }
+  methods: [PUT]
+
+film_list:
+  path: /film/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Film\Controller\ListFilmController::execute }
+  methods: [GET]
+
+#Actor
+actor_create:
+  path: /actor/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Actor\Controller\CreateActorController::execute }
+  methods: [POST]
+
+actor_list:
+  path: /actor/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Actor\Controller\ListActorController::execute }
+  methods: [GET]
+
+actor_update:
+  path: /actor/{id}/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Actor\Controller\UpdateActorController::execute }
+  methods: [PUT]
+
+actor_delete:
+  path: /actor/{id}/
+  defaults: { _controller: \MyApp\Bundle\FilmBundle\Actor\Controller\DeleteActorController::execute }
+  methods: [DELETE]

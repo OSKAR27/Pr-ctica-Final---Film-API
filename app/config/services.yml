@@ -1,0 +1,64 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+#    parameter_name: value
+services:
+  app.actor.usecase.newactor:
+    class: MyApp\Component\Film\Application\UseCase\Actor\NewActorUseCase
+    arguments:
+      entityManager: '@doctrine.orm.entity_manager' # services are referenced with an @ symbol
+      dispatcher: '@event_dispatcher'
+
+   app.command.actor.create:
+    class: MyApp\Bundle\FilmBundle\Command\Actor\CreateActorCommand
+    arguments: ['app:create-actor']
+    tags:
+      - { name: console.command }
+
+    app.command.actor.update:
+    class: MyApp\Bundle\FilmBundle\Command\Actor\UpdateActorCommand
+    arguments:
+        name: app:update-actor
+    tags:
+      - { name: console.command } 
+
+    app.command.actor.list:
+    class: MyApp\Bundle\FilmBundle\Command\Actor\ListActorCommand
+    arguments:
+        name: app:list-actor
+    tags:
+      - { name: console.command }
+
+    app.command.actor.delete:
+    class: MyApp\Bundle\FilmBundle\Command\Actor\DeleteActorCommand
+    arguments:
+        name: app:delete-actor
+    tags:
+      - { name: console.command }
+
+
+    app.command.film.create:
+    class: MyApp\Bundle\FilmBundle\Command\Film\CreateFilmCommand
+    arguments:
+        name: app:create-film
+    tags:
+      - { name: console.command }
+    
+    app.command.film.update:
+    class: MyApp\Bundle\FilmBundle\Command\Film\UpdateFilmCommand
+    tags:
+      - { name: console.command }
+
+    app.command.film.list:
+    class: MyApp\Bundle\FilmBundle\Command\Film\ListFilmCommand
+    arguments:
+        name: app:list-film
+    tags:
+      - { name: console.command }
+    
+    app.command.film.create:
+    class: MyApp\Bundle\FilmBundle\Command\Film\DeleteFilmCommand
+    arguments:
+        name: app:delete-film
+    tags:
+      - { name: console.command }
